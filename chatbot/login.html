@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            <!DOCTYPE html>
+            <html>
+            <head>
+                <meta charset="utf-8">
+                <title>Login</title>
+                <style>
+                    body { font-family: Arial, sans-serif; background: white; display:flex; justify-content:center; align-items:center; height:100vh; margin:0; }
+                    .container { width:380px; padding:30px; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1); background:white; }
+                    h2 { text-align:center; color:#0F2B5B; }
+                    input, select, button { width:100%; padding:10px; margin:8px 0; border-radius:6px; border:1px solid #D1D5DB; background:#F5F7FA; }
+                    button { background:#0F2B5B; color:white; border:none; cursor:pointer; }
+                    button:hover { background:#123A7A; }
+                    .message { color:red; text-align:center; }
+                    .center { text-align:center; font-size:14px; }
+                    a { color:#0F2B5B; text-decoration:none; }
+                </style>
+             </head>
+             <body>
+             <div class="container">
+                <h2>Login</h2>
+                <p id="msg" class="message"></p>
+                <form id="loginForm">
+                    <select id="role" required>
+                        <option value="">Select Role</option>
+                        <option value="student">Student</option>
+                        <option value="staff">Staff</option>
+                        <option value="visitor">Visitor</option>
+                    </select>
+                    <input type="text" id="identifier" placeholder="Registration No or Staff ID" required>
+                    <input type="password" id="password" placeholder="Password" required>
+                    <button type="submit">Login</button>
+                </form>
+                <p class="center">
+                    <a href="signup.html">Sign Up</a>
+                </p>
+                <p class="center">
+                    <a href="chatbot.html">Continue as Visitor</a>
+                </p>
+             </div>
+
+             <script>
+            document.getElementById('loginForm').addEventListener('submit', function(e){
+                e.preventDefault();
+                var role = document.getElementById('role').value;
+                var identifier = document.getElementById('identifier').value.trim();
+                var pass = document.getElementById('password').value;
+
+                if(!role){ document.getElementById('msg').innerText = "Please select your role."; return; }
+                if(!identifier || !pass){ document.getElementById('msg').innerText = "Please fill all fields."; return; }
+
+                if(role === 'visitor'){
+                    window.location.href = 'chatbot.html';
+                    return;
+                }
+
+                fetch('login.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: new URLSearchParams({ role: role, identifier: identifier, password: pass })
+                }).then(r => r.json()).then(data => {
+                    if(data.success){ window.location.href = data.redirect || 'chatbot.html'; }
+                    else { document.getElementById('msg').innerText = data.message || 'Login failed'; }
+                }).catch(err => { document.getElementById('msg').innerText = 'Network error'; });
+            });
+             </script>
+             </body>
+             </html>

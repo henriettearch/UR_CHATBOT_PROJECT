@@ -1,0 +1,40 @@
+<?php
+$message = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $role = $_POST['role'];
+
+    if (!empty($role)) {
+        header("Location: chatbot.php");
+        exit();
+    } else {
+        $message = "Please select your role.";
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Select Role</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <h2>Confirm Role</h2>
+
+    <?php if ($message) echo "<p class='message'>$message</p>"; ?>
+
+    <form method="post">
+        <select name="role">
+            <option value="">Select Role</option>
+            <option>Student</option>
+            <option>Staff</option>
+            <option>Visitor</option>
+        </select>
+
+        <button type="submit">Continue</button>
+    </form>
+</div>
+</body>
+</html>

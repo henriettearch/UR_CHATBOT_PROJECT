@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Sign Up</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: white; display:flex; justify-content:center; align-items:center; height:100vh; margin:0; }
+        .container { width:420px; padding:24px; border-radius:10px; box-shadow:0 4px 14px rgba(0,0,0,0.08); background:#fff; }
+        h2 { text-align:center; color:#0F2B5B; margin-bottom:8px; }
+        input, select, button { width:100%; padding:10px; margin:8px 0; border-radius:6px; border:1px solid #D1D5DB; background:#F5F7FA; }
+        button { background:#0F2B5B; color:#fff; border:none; cursor:pointer; }
+        button:hover { background:#123A7A; }
+        .message { text-align:center; color:red; min-height:18px; }
+        .note { font-size:13px; text-align:center; color:#333; }
+    </style>
+ </head>
+ <body>
+ <div class="container">
+    <h2>Sign Up</h2>
+    <p id="msg" class="message"></p>
+    <form id="signupForm">
+        <select id="role" required>
+            <option value="">Select Role</option>
+            <option value="student">Student</option>
+            <option value="staff">Staff</option>
+            <option value="visitor">Visitor</option>
+        </select>
+
+        <div id="common">
+            <input type="text" id="first_name" placeholder="First Name">
+            <input type="text" id="last_name" placeholder="Last Name">
+        </div>
+
+        <div id="studentFields" style="display:none;">
+            <input type="text" id="reg_no" placeholder="Registration Number">
+            <select id="year">
+                <option value="">Select Year</option>
+                <option value="1">Year 1</option>
+                <option value="2">Year 2</option>
+                <option value="3">Year 3</option>
+                <option value="4">Year 4</option>
+                <option value="5">Year 5</option>
+            </select>
+            <select id="college">
+                <option value="">Select College</option>
+                <option value="CBE">CBE</option>
+                <option value="CMHS">CMHS</option>
+                <option value="CASS">CASS</option>
+            </select>
+        </div>
+
+        <div id="staffFields" style="display:none;">
+            <input type="text" id="staff_id" placeholder="Staff ID">
+        </div>
+
+        <div id="passwordFields" style="display:none;">
+            <input type="password" id="password" placeholder="Password">
+            <input type="password" id="confirm_password" placeholder="Confirm Password">
+        </div>
+
+        <button id="submitBtn" type="submit">Sign Up</button>
+        <p class="note">Visitors can continue without creating an account.</p>
+    </form>
+ </div>
+
+ <script>
+document.getElementById('role').addEventListener('change', function(){
+    const r = this.value;
+    document.getElementById('msg').innerText = '';
+    document.getElementById('studentFields').style.display = r==='student' ? 'block' : 'none';
+    document.getElementById('staffFields').style.display = r==='staff' ? 'block' : 'none';
+    document.getElementById('passwordFields').style.display = (r==='student' || r==='staff') ? 'block' : 'none';
+    document.getElementById('common').style.display = (r==='visitor') ? 'block' : 'block';
+    document.getElementById('submitBtn').innerText = r==='visitor' ? 'Continue as Visitor' : 'Sign Up';
+});
+
+document.getElementById('signupForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const role = document.getElementById('role').value;
+    if(!role){ document.getElementById('msg').innerText='Please select a role'; return; }
+
+    if(role === 'visitor'){
+        // No account needed — redirect to chatbot as visitor
+        window.location.href = 'chatbot.html';
+        return;
+    }
+
+    const payload = { role: role, first_name: document.getElementById('first_name').value.trim(), last_name: document.getElementById('last_name').value.trim(), password: document.getElementById('password').value, confirm_password: document.getElementById('confirm_password').value };
+    if(role==='student'){
+        payload.reg_no = document.getElementById('reg_no').value.trim();
+        payload.year = document.getElementById('year').value;
+        payload.college = document.getElementById('college').value;
+        if(!payload.reg_no || !payload.year || !payload.college){ document.getElementById('msg').innerText='Please complete student fields'; return; }
+    }
+    if(role==='staff'){
+        payload.staff_id = document.getElementById('staff_id').value.trim();
+        if(!payload.staff_id){ document.getElementById('msg').innerText='Please enter Staff ID'; return; }
+    }
+    if(!payload.password || payload.password !== payload.confirm_password){ document.getElementById('msg').innerText='Passwords do not match or are empty'; return; }
+
+    fetch('signup.php', { method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body: new URLSearchParams(payload) })
+        .then(r=>r.json()).then(d=>{
+            if(d.success){ window.location.href = d.redirect || 'login.html'; }
+            else { document.getElementById('msg').innerText = d.message || 'Signup failed'; }
+        }).catch(()=>document.getElementById('msg').innerText='Network error');
+});
+ </script>
+ </body>
+ </html>
