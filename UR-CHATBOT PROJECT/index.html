@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University of Rwanda - Welcome</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- ========== TOP UTILITY BAR ========== -->
+    <div class="utility-bar">
+        <div class="utility-container">
+            <ul class="utility-links">
+                <li><a href="#colleges">Colleges</a></li>
+                <li><a href="#centers">Centers of Colleges</a></li>
+                <li><a href="#library">Library</a></li>
+                <li><a href="#emails">Emails</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ========== MAIN NAVIGATION BAR ========== -->
+    <nav class="navbar sticky-navbar">
+        <div class="nav-container">
+            <!-- Logo -->
+            <div class="logo">
+                <a href="#home">
+                    <span class="logo-icon">UR</span>
+                    <span class="logo-text">University of Rwanda</span>
+                </a>
+            </div>
+
+            <!-- Hamburger Menu for Mobile -->
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <!-- Main Menu -->
+            <ul class="nav-menu" id="navMenu">
+                <!-- About Dropdown -->
+                <li class="nav-item dropdown">
+                    <a href="#about" class="nav-link dropdown-toggle">
+                        About
+                        <span class="dropdown-icon">▼</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#story">Our Story</a></li>
+                        <li><a href="#vision">Vision & Mission</a></li>
+                        <li><a href="#governance">Governance Structure</a></li>
+                        <li><a href="#leadership">Current Leadership</a></li>
+                        <li><a href="#offices">Offices</a></li>
+                        <li><a href="#facts">Facts & Figures</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#admissions" class="nav-link">Admissions</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#research" class="nav-link">Research</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#news" class="nav-link">News and Events</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#partners" class="nav-link">Partners</a>
+                </li>
+            </ul>
+
+            <!-- Search Bar -->
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="What are you looking for?" class="search-input">
+                <button class="search-btn" id="searchBtn">🔍</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========== HERO SECTION ========== -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1 class="hero-title">Welcome to University of Rwanda</h1>
+            <p class="hero-subtitle">Excellence in Education, Innovation in Research, and Leadership for Tomorrow</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary">Apply Now</button>
+                <button class="btn btn-secondary">Learn More</button>
+            </div>
+        </div>
+        <div class="hero-overlay"></div>
+    </section>
+
+    <!-- ========== INTRODUCTION SECTION ========== -->
+    <section class="intro-section" id="about">
+        <div class="container">
+            <h2 class="section-title">About the University</h2>
+            <p class="intro-text">
+                The University of Rwanda is a premier institution of higher learning dedicated to fostering academic 
+                excellence, groundbreaking research, and meaningful community engagement. With state-of-the-art facilities 
+                and a world-class faculty, we prepare our students to become leaders and innovators who will shape the future. 
+                Our commitment to quality education and sustainable development drives everything we do.
+            </p>
+            <div class="intro-highlight">
+                <p><strong>Mission:</strong> To provide quality, relevant and accessible higher education for sustainable development.</p>
+                <p><strong>Vision:</strong> To be a centre of academic excellence and innovation for African development.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SERVICES CARDS SECTION ========== -->
+    <section class="services-section" id="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <!-- Registrar Card -->
+                <div class="service-card">
+                    <div class="card-icon">📋</div>
+                    <h3>Registrar</h3>
+                    <p>Academic records, registration, and student documentation services available to support your educational journey.</p>
+                    <a href="#" class="card-link">Learn More →</a>
+                </div>
+
+                <!-- IT Support Card -->
+                <div class="service-card">
+                    <div class="card-icon">💻</div>
+                    <h3>IT Support</h3>
+                    <p>Technical assistance, network support, and digital infrastructure to keep you connected and productive.</p>
+                    <a href="#" class="card-link">Learn More →</a>
+                </div>
+
+                <!-- Student Welfare Card -->
+                <div class="service-card">
+                    <div class="card-icon">🎓</div>
+                    <h3>Student Welfare</h3>
+                    <p>Comprehensive support services including counseling, health, accommodation, and personal development programs.</p>
+                    <a href="#" class="card-link">Learn More →</a>
+                </div>
+
+                <!-- Career Guidance Card -->
+                <div class="service-card">
+                    <div class="card-icon">🚀</div>
+                    <h3>Career Guidance</h3>
+                    <p>Professional career counseling, job placement assistance, and networking opportunities for your future.</p>
+                    <a href="#" class="card-link">Learn More →</a>
+                </div>
+
+                <!-- DTLE Card -->
+                <div class="service-card">
+                    <div class="card-icon">🔬</div>
+                    <h3>DTLE</h3>
+                    <p>Directorate of Teaching, Learning and Enhancement programs promoting excellence in academic instruction.</p>
+                    <a href="#" class="card-link">Learn More →</a>
+                </div>
+
+                <!-- Research & Innovation Card -->
+                <div class="service-card">
+                    <div class="card-icon">🌟</div>
+                    <h3>Research & Innovation</h3>
+                    <p>Cutting-edge research facilities and innovation hubs fostering groundbreaking discoveries and solutions.</p>
+                    <a href="#" class="card-link">Learn More →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FLOATING CHATBOT BUTTON ========== -->
+    <div class="chatbot-container">
+        <!-- Chatbot Button -->
+        <button class="chatbot-button" id="chatbotBtn" title="Open Chat">
+            <span class="chat-icon">💬</span>
+        </button>
+
+        <!-- Chatbot Window -->
+        <div class="chatbot-window" id="chatbotWindow">
+            <!-- Chatbot Header -->
+            <div class="chatbot-header">
+                <h3>UR Chat Assistant</h3>
+                <button class="close-btn" id="closeChatBtn">✕</button>
+            </div>
+
+            <!-- Chatbot Messages -->
+            <div class="chatbot-messages" id="chatbotMessages">
+                <div class="chat-message bot-message">
+                    <p>Hello! 👋 Welcome to University of Rwanda. How can I assist you today?</p>
+                </div>
+            </div>
+
+            <!-- Chatbot Input -->
+            <div class="chatbot-input-area">
+                <input type="text" id="chatInput" placeholder="Type your message..." class="chat-input">
+                <button class="send-btn" id="sendBtn">Send</button>
+            </div>
+
+            <!-- Integration Note -->
+            <div class="chatbot-note">
+                <small>💡 AI integration ready - connect your backend API here</small>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Column 1: ABOUT UR -->
+            <div class="footer-column">
+                <h4>ABOUT UR</h4>
+                <ul>
+                    <li><a href="#story">Our Story</a></li>
+                    <li><a href="#vision">Vision & Mission</a></li>
+                    <li><a href="#governance">Governance Structure</a></li>
+                    <li><a href="#leadership">Current Leadership</a></li>
+                    <li><a href="#offices">Offices</a></li>
+                    <li><a href="#facts">Facts & Figures</a></li>
+                    <li><a href="#policies">Policies & Guidelines</a></li>
+                    <li><a href="#org-structure">Organizational Structure</a></li>
+                    <li><a href="#network">Our Network</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 2: ADMISSIONS -->
+            <div class="footer-column">
+                <h4>ADMISSIONS</h4>
+                <ul>
+                    <li><a href="#undergraduate">Undergraduate</a></li>
+                    <li><a href="#postgraduate">Postgraduate</a></li>
+                    <li><a href="#short-courses">Short Courses</a></li>
+                    <li><a href="#professional">Professional Training</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3: ACADEMICS -->
+            <div class="footer-column">
+                <h4>ACADEMICS</h4>
+                <ul>
+                    <li><a href="#schools">Schools</a></li>
+                    <li><a href="#programs">Academic Programs</a></li>
+                    <li><a href="#fees">Fee Structure</a></li>
+                    <li><a href="#bank">UR Bank Accounts</a></li>
+                    <li><a href="#calendar">Academic Calendar</a></li>
+                    <li><a href="#regulations">Academic Regulations & Policies</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 4: GET IN TOUCH -->
+            <div class="footer-column">
+                <h4>GET IN TOUCH</h4>
+                <div class="contact-info">
+                    <p><strong>Head Office – UR Headquarters</strong></p>
+                    <p>KN 75 Street, Nyarugenge, Kigali</p>
+                    <p>P.O. Box 4285 Kigali – Rwanda</p>
+                    <p><strong>Email:</strong> <a href="mailto:info@ur.ac.rw">info@ur.ac.rw</a></p>
+                    <p><strong>Website:</strong> <a href="https://www.ur.ac.rw">www.ur.ac.rw</a></p>
+                </div>
+
+                <div class="social-connect">
+                    <h5>Connect with UR</h5>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon" title="Facebook">f</a>
+                        <a href="#" class="social-icon" title="Twitter">𝕏</a>
+                        <a href="#" class="social-icon" title="LinkedIn">in</a>
+                        <a href="#" class="social-icon" title="Instagram">📷</a>
+                    </div>
+                </div>
+
+                <div class="newsletter">
+                    <h5>Newsletter Subscription</h5>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email" class="newsletter-input" required>
+                        <button type="submit" class="newsletter-btn">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <p>&copy; 2024 University of Rwanda. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- ========== SCRIPTS ========== -->
+    <script src="dom.js"></script>
+</body>
+</html>
